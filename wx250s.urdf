@@ -252,15 +252,6 @@
     <parent link="ee_arm_link"/>
     <child link="gripper_prop_link"/>
   </joint>
-  <!-- <transmission name="trans_gripper">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="gripper">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="gripper_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission> -->
   <link name="gripper_prop_link">
     <visual>
       <origin rpy="0 0 1.5707963267948966" xyz="-0.0685 0 0"/>
@@ -268,12 +259,13 @@
         <mesh filename="meshes_wx250s/WXSA-250-M-8-Gripper-Prop.obj" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
-    <collision>
+    <!-- stao: No need to model this collision, it is inside gripper_link -->
+    <!-- <collision>
       <origin rpy="0 0 1.5707963267948966" xyz="-0.0685 0 0"/>
       <geometry>
         <mesh filename="meshes_wx250s/WXSA-250-M-8-Gripper-Prop.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-    </collision>
+    </collision> -->
     <inertial>
       <origin rpy="0 0 1.5707963267948966" xyz="0.0008460000 -0.0000016817 0.0000420000"/>
       <mass value="0.00434"/>
@@ -360,7 +352,7 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="fingers_link"/>
     <child link="right_finger_link"/>
-    <mimic joint="left_finger" multiplier="1" offset="0"/>
+    <!-- <mimic joint="left_finger" multiplier="1" offset="0"/> -->
   </joint>
   <!-- <transmission name="trans_right_finger">
     <type>transmission_interface/SimpleTransmission</type>
